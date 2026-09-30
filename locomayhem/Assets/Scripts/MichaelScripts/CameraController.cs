@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        HandleMovement();
+        //HandleMovement();
         HandleDrag();
         HandleZoom();
         ClampPosition();
