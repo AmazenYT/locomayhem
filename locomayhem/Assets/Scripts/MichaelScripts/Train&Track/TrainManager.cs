@@ -1,12 +1,24 @@
 using Unity.Netcode;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TrainManager : NetworkBehaviour
 {
     [SerializeField] private GameObject trainPrefab;
 
+    public static TrainManager Instance;
+    private TrainTest spawnedTrain;
+
     [Header("Spawn Locations")]
     [SerializeField] private TrackNode[] startNodes;
+
+    [Header("Spawned Trains")]
+    private List<TrainTest> trains = new();
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public override void OnNetworkSpawn()
     {
@@ -30,6 +42,13 @@ public class TrainManager : NetworkBehaviour
 
         train.SetStartingNode(startNode);
 
+        spawnedTrain = train;
+
         trainObject.GetComponent<NetworkObject>().Spawn();
+        
+    }
+    public TrainTest GetTrain()
+    {
+        return spawnedTrain;
     }
 }

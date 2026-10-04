@@ -1,6 +1,5 @@
-using UnityEngine;
-using System.Collections;
 using Unity.Netcode;
+using UnityEngine;
 
 public class TrainTest : NetworkBehaviour
 {
@@ -11,17 +10,25 @@ public class TrainTest : NetworkBehaviour
     [SerializeField] private TrackNode currentNode;
     [SerializeField] private TrackNode targetNode;
 
-    private bool isWaiting;
-
     private TrackNode previousNode;
+
+    private bool canMove;
+    private bool isWaitingAtStation;
+
+    private StationNode currentStation;
 
     private void Update()
     {
         if (!IsServer)
-        return;
+            return;
 
+        if (!canMove)
+            return;
 
-        if (targetNode == null || isWaiting)
+        if (isWaitingAtStation)
+            return;
+
+        if (targetNode == null)
             return;
 
         MoveToTarget();
@@ -42,11 +49,13 @@ public class TrainTest : NetworkBehaviour
             float angle =
                 Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            transform.rotation =
+                Quaternion.Euler(0f, 0f, angle);
         }
 
-        if (Vector2.Distance(transform.position,
-            targetNode.transform.position) < 0.05f)
+        if (Vector2.Distance(
+                transform.position,
+                targetNode.transform.position) < 0.05f)
         {
             ArrivedAtNode();
         }
@@ -56,35 +65,102 @@ public class TrainTest : NetworkBehaviour
     {
         previousNode = currentNode;
         currentNode = targetNode;
-        
-        StationNode station = currentNode.GetComponent<StationNode>();
-        
+
+        // Snap exactly onto the node.
+        transform.position = currentNode.transform.position;
+
+        StationNode station =
+            currentNode.GetComponent<StationNode>();
+
         if (station != null)
         {
-            StartCoroutine(StopAtStation(station));
+            ArriveAtStation(station);
             return;
         }
-        
+
         ChooseNextNode();
+    }
+
+    private void ArriveAtStation(StationNode station)
+    {
+        isWaitingAtStation = true;
+        currentStation = station;
+        targetNode = null;
+
+        station.TrainArrived(this);
+
+        Debug.Log(
+            gameObject.name + " is waiting at " + station.gameObject.name);
+    }
+
+    /// <summary>
+    /// Called by the station when a player selects a direction.
+    /// This should only be called on the server.
+    /// </summary>
+    public bool DepartStation(TrackNode selectedNode)
+    {
+        if (!IsServer)
+            return false;
+
+        if (!isWaitingAtStation)
+        {
+            Debug.LogWarning("Train is not waiting at a station.");
+            return false;
+        }
+
+        if (currentNode == null || selectedNode == null)
+        {
+            Debug.LogWarning("Current node or selected node is null.");
+            return false;
+        }
+
+        // Make sure the chosen node is actually connected
+        // to the station's TrackNode.
+        if (!currentNode.connections.Contains(selectedNode))
+        {
+            Debug.LogWarning(
+                selectedNode.gameObject.name +
+                " is not connected to this station.");
+            return false;
+        }
+
+        StationNode stationLeaving = currentStation;
+
+        targetNode = selectedNode;
+        isWaitingAtStation = false;
+        currentStation = null;
+        canMove = true;
+
+        if (stationLeaving != null)
+        {
+            stationLeaving.TrainDeparted(this);
+        }
+
+        Debug.Log(
+            gameObject.name +
+            " departing towards " +
+            selectedNode.gameObject.name);
+
+        return true;
     }
 
     private void ChooseNextNode()
     {
-        if (currentNode.connections.Count == 0)
+        if (currentNode == null ||
+            currentNode.connections.Count == 0)
         {
             targetNode = null;
-            Debug.Log("Train reached end of track.");
+            Debug.Log("Train reached the end of the track.");
             return;
         }
 
-        // If there's only one connection
         if (currentNode.connections.Count == 1)
         {
             targetNode = currentNode.connections[0];
             return;
         }
 
-        // Avoid immediately going backwards
+        // Avoid immediately going backwards.
         foreach (TrackNode node in currentNode.connections)
         {
             if (node != previousNode)
@@ -94,35 +170,39 @@ public class TrainTest : NetworkBehaviour
             }
         }
 
-        // Fallback
         targetNode = currentNode.connections[0];
     }
 
     public void SetStartingNode(TrackNode startNode)
     {
         currentNode = startNode;
-        
         transform.position = startNode.transform.position;
-        
+
         if (currentNode.connections.Count > 0)
         {
             targetNode = currentNode.connections[0];
         }
+        else
+        {
+            targetNode = null;
+        }
     }
 
-    private IEnumerator StopAtStation(StationNode station)
+    public void SetMoving(bool move)
     {
-        isWaiting = true;
-        
-        station.TrainArrived();
-        
-        yield return new WaitForSeconds(station.stopTime);
-        
-        station.TrainDeparted();
-        isWaiting = false;
-        
-        ChooseNextNode();
+        if (!IsServer)
+            return;
+
+        canMove = move;
     }
 
-    
+    public bool IsWaitingAtStation()
+    {
+        return isWaitingAtStation;
+    }
+
+    public TrackNode GetCurrentNode()
+    {
+        return currentNode;
+    }
 }
