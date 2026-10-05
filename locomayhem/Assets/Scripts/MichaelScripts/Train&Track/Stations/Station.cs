@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Station : MonoBehaviour
 {
-    [SerializeField] private Train startingTrain;
     private Train currentTrain;
 
     public int selectedExit = 0;
@@ -13,14 +12,12 @@ public class Station : MonoBehaviour
         return currentTrain != null;
     }
 
-    private void Start()
+    public Train GetCurrentTrain()
     {
-        if (startingTrain != null)
-        {
-            currentTrain = startingTrain;
-            currentTrain.StopTrain();
-        }
+        return currentTrain;
     }
+
+
 
     public void TrainArrived(Train train)
     {
@@ -52,4 +49,5 @@ public class Station : MonoBehaviour
 
         currentTrain = null;
     }
+    
 }
