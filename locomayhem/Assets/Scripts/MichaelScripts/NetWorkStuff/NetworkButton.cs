@@ -44,7 +44,7 @@ public class NetworkButton : NetworkBehaviour
 
         isBlue.Value = true;
 
-        TrainTest train = TrainManager.Instance.GetTrain();
+        //TrainTest train = TrainManager.Instance.GetTrain();
 
         if (train != null)
         {

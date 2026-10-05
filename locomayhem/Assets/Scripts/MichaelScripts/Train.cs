@@ -4,7 +4,6 @@ public class Train : MonoBehaviour
 {
     [SerializeField] private float speed = 3f;
 
-    [SerializeField] private TrackNode startNode;
     private TrackNode previousNode;
 
     private TrackNode currentNode;
@@ -20,11 +19,6 @@ public class Train : MonoBehaviour
         {
             targetNode = currentNode.connections[0];
         }
-    }
-
-    private void Start()
-    {
-        SetStartingNode(startNode);
     }
 
 
