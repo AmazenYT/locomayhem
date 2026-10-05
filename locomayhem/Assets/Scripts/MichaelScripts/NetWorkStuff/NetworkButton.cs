@@ -4,15 +4,22 @@ using UnityEngine;
 public class NetworkButton : NetworkBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private TrainTest train;
 
-    private NetworkVariable<bool> isBlue = new NetworkVariable<bool>(false);
+    private NetworkVariable<bool> isBlue = new(false);
 
-    private void Start()
+    private void Awake()
     {
-        UpdateColor();
-        isBlue.OnValueChanged += OnStateChanged;
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    
+
+    public override void OnNetworkSpawn()
+    {
+        isBlue.OnValueChanged += OnStateChanged;
+        UpdateColor();
+    }
+
     public override void OnDestroy()
     {
         isBlue.OnValueChanged -= OnStateChanged;
@@ -28,15 +35,29 @@ public class NetworkButton : NetworkBehaviour
     {
         spriteRenderer.color = isBlue.Value ? Color.blue : Color.red;
     }
-
+    
     [Rpc(SendTo.Server)]
     public void ToggleButtonRpc()
     {
-        isBlue.Value = !isBlue.Value;
+        if (isBlue.Value)
+            return;
+
+        isBlue.Value = true;
+
+        TrainTest train = TrainManager.Instance.GetTrain();
+
+        if (train != null)
+        {
+            train.SetMoving(true);
+        }
     }
+
 
     private void OnMouseDown()
     {
-        ToggleButtonRpc();
+        if (NetworkManager.Singleton.IsClient)
+        {
+            ToggleButtonRpc();
+        }
     }
 }

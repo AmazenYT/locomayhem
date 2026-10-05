@@ -1,43 +1,39 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TrainScript : MonoBehaviour
 {
-    public Rigidbody2D trainRB;
+    public NavMeshAgent trainAgent;
+
+    public Transform junctionWaypoint;
+    public Transform station1Waypoint;
+    public Transform station2Waypoint;
+
     public float trainSpeed = 5f;
 
-    private bool onRailroad = false;
-
-    void Update()
+    void Start()
     {
-        if (onRailroad)
-        {
-            var horizontalInput = Input.GetAxis("Horizontal");
-            var verticalInput = Input.GetAxis("Vertical");
-
-            trainRB.linearVelocity = new Vector2(
-                horizontalInput * trainSpeed,
-                verticalInput * trainSpeed
-            );
-        }
-        else
-        {
-            trainRB.linearVelocity = Vector2.zero;
-        }
+        trainAgent.speed = trainSpeed;
+        trainAgent.isStopped = true;
+        trainAgent.updateRotation = false;
+        trainAgent.updateUpAxis = false;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void StartTrain()
     {
-        if (collision.gameObject.CompareTag("Railroad"))
-        {
-            onRailroad = true;
-        }
+        trainAgent.isStopped = false;
+        trainAgent.SetDestination(junctionWaypoint.position);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void Station1()
     {
-        if (collision.gameObject.CompareTag("Railroad"))
-        {
-            onRailroad = false;
-        }
+        trainAgent.isStopped = false;
+        trainAgent.SetDestination(station1Waypoint.position);
+    }
+
+    public void Station2()
+    {
+        trainAgent.isStopped = false;
+        trainAgent.SetDestination(station2Waypoint.position);
     }
 }
