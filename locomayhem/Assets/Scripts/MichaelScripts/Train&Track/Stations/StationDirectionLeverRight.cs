@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class StationDirectionButtonReal : MonoBehaviour
+public class StationDirectionLeverRight : MonoBehaviour
 {
     [SerializeField] private Station station;
 
     private void OnMouseDown()
     {
-        station.SetLeft();
+        station.SetRight();
     }
 }

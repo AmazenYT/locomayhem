@@ -5,6 +5,15 @@ public class Station : MonoBehaviour
 {
     private Train currentTrain;
 
+    [SerializeField] private SpriteRenderer leftLever;
+    [SerializeField] private SpriteRenderer rightLever;
+
+    [SerializeField] private Sprite leftLeverSelected;
+    [SerializeField] private Sprite leftLeverUnselected;
+
+    [SerializeField] private Sprite rightLeverSelected;
+    [SerializeField] private Sprite rightLeverUnselected;
+
     public int selectedExit = 0;
 
     public bool HasTrain()
@@ -29,10 +38,27 @@ public class Station : MonoBehaviour
         Debug.Log("Train arrived");
     }
 
-    public void SetDirection(int direction)
+    //public void SetDirection(int direction)
+    //{
+        //selectedExit = direction;
+    //}
+
+    public void SetLeft()
     {
-        selectedExit = direction;
+        selectedExit = 0;
+        leftLever.sprite = leftLeverSelected;
+        rightLever.sprite = rightLeverUnselected;
+
     }
+
+    public void SetRight()
+    {
+        selectedExit = 1;
+        leftLever.sprite = leftLeverUnselected;
+        rightLever.sprite = rightLeverSelected;
+
+    }
+
 
     public void DispatchTrain()
     {

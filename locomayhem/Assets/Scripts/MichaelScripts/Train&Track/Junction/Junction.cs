@@ -6,6 +6,9 @@ public class Junction : MonoBehaviour
 
     private TrackNode junctionNode;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] sprites;
+
     private void Awake()
     {
         junctionNode = GetComponent<TrackNode>();
@@ -18,6 +21,7 @@ public class Junction : MonoBehaviour
         if (selectedRoute > 1)
             selectedRoute = 0;
 
+        spriteRenderer.sprite = sprites[selectedRoute];
         Debug.Log("Route: " + selectedRoute);
     }
 
