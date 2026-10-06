@@ -59,6 +59,7 @@ public class Station : MonoBehaviour
         
         waitingPassengers.Clear();
         UpdatePassengerText();
+        train.UpdatePassengerText();
     }
 
 

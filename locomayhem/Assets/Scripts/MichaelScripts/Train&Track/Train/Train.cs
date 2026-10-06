@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class Train : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Train : MonoBehaviour
     private bool moving = false;
     
     public List<Passenger> passengers = new List<Passenger>();
+    public TMP_Text passengerText;
 
     private void UnloadPassengers(Station station)
     {
@@ -25,6 +27,12 @@ public class Train : MonoBehaviour
                 Debug.Log("Passenger Delivered!");
             }
         }
+
+        UpdatePassengerText();
+    }
+    public void UpdatePassengerText()
+    {
+        passengerText.text = passengers.Count.ToString();
     }
     public void SetStartingNode(TrackNode startNode)
     {
