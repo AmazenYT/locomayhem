@@ -105,12 +105,12 @@ TextureImporter:
       name: Lever_un-switched_0
       rect:
         serializedVersion: 2
-        x: 154
-        y: 411
-        width: 115
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 130
+        y: 412
+        width: 138
+        height: 132
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -127,7 +127,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f71f53d1f6559b64e9587229612d9081
     internalID: 0
     vertices: []
     indices: 

@@ -1,16 +1,11 @@
-using UnityEngine;
-
-public class Passengers : MonoBehaviour
+public class Passenger
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Station startStation;
+    public Station destinationStation;
 
-    // Update is called once per frame
-    void Update()
+    public Passenger(Station start, Station destination)
     {
-        
+        startStation = start;
+        destinationStation = destination;
     }
 }
