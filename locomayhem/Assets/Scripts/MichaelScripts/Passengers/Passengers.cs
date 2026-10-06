@@ -1,11 +1,9 @@
 public class Passenger
 {
-    public Station startStation;
-    public Station destinationStation;
+    public Station destination;
 
-    public Passenger(Station start, Station destination)
+    public Passenger(Station target)
     {
-        startStation = start;
-        destinationStation = destination;
+        destination = target;
     }
 }

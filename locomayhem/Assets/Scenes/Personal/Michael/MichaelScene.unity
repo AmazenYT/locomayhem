@@ -237,63 +237,6 @@ MonoBehaviour:
     OldPrefabList: []
   RunInBackground: 1
   LogLevel: 1
---- !u!1001 &35452328
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.61812
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.5654
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429931769693284218, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
-      propertyPath: m_Name
-      value: Cowboy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
 --- !u!1001 &111291385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,6 +544,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da98ac2966a507e40b3f966f225169cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackNode
+--- !u!1 &367250393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367250394}
+  - component: {fileID: 367250395}
+  m_Layer: 0
+  m_Name: PassengerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &367250394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367250393}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1660196228}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &367250395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367250393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238f217da6fb6054aba204900d02ab1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PassengerManager
+  stations:
+  - {fileID: 2050375464}
+  - {fileID: 901432353}
 --- !u!114 &371951642 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
@@ -1339,17 +1329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf6bcb6885a09149a598cf9ff0bdce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Station
---- !u!114 &901432354 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3833818461925014810, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
-  m_PrefabInstance: {fileID: 1318821819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da98ac2966a507e40b3f966f225169cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrackNode
 --- !u!1 &933165207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &933165208
 Transform:
   m_ObjectHideFlags: 0
@@ -22913,7 +22892,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1724678260651918634, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
 --- !u!114 &1088810845 stripped
 MonoBehaviour:
@@ -23024,7 +23006,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1724678260651918634, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
 --- !u!114 &1373203001 stripped
 MonoBehaviour:
@@ -24604,6 +24589,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2119121977}
+  - {fileID: 367250394}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1755607071 stripped
@@ -25306,7 +25292,6 @@ MonoBehaviour:
   trainPrefab: {fileID: 1884529926525265174, guid: 463677ef0ed713b488b667effb372e3b, type: 3}
   startNodes:
   - {fileID: 2050375463}
-  - {fileID: 901432354}
 --- !u!1001 &2124110987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25648,4 +25633,3 @@ SceneRoots:
   - {fileID: 7169168061291524618}
   - {fileID: 2086863262}
   - {fileID: 1660196228}
-  - {fileID: 35452328}

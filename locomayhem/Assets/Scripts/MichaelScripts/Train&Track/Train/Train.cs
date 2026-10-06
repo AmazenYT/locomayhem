@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Train : MonoBehaviour
 {
@@ -11,7 +12,20 @@ public class Train : MonoBehaviour
     private TrackNode targetNode;
 
     private bool moving = false;
+    
+    public List<Passenger> passengers = new List<Passenger>();
 
+    private void UnloadPassengers(Station station)
+    {
+        for (int i = passengers.Count - 1; i >= 0; i--)
+        {
+            if (passengers[i].destination == station)
+            {
+                passengers.RemoveAt(i);
+                Debug.Log("Passenger Delivered!");
+            }
+        }
+    }
     public void SetStartingNode(TrackNode startNode)
     {
         currentNode = startNode;
@@ -141,6 +155,7 @@ private void Update()
                 return;
             }
             
+            UnloadPassengers(station);
             station.TrainArrived(this);
             return;
         }

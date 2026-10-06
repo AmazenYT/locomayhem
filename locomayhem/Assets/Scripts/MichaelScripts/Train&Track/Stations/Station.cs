@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using TMPro;
 
 
 public class Station : MonoBehaviour
@@ -15,6 +17,19 @@ public class Station : MonoBehaviour
     [SerializeField] private Sprite rightLeverUnselected;
 
     public int selectedExit = 0;
+
+    public List<Passenger> waitingPassengers = new List<Passenger>();
+    public TMP_Text passengerText;
+
+    public void AddPassenger(Passenger passenger)
+    {
+        waitingPassengers.Add(passenger);
+        UpdatePassengerText();
+    }
+    private void UpdatePassengerText()
+    {
+        passengerText.text = waitingPassengers.Count.ToString();
+    }
 
     public bool HasTrain()
     {
@@ -36,7 +51,17 @@ public class Station : MonoBehaviour
         currentTrain.StopTrain();
 
         Debug.Log("Train arrived");
+
+        foreach (Passenger passenger in waitingPassengers)
+        {
+            train.passengers.Add(passenger);
+        }
+        
+        waitingPassengers.Clear();
+        UpdatePassengerText();
     }
+
+
 
     //public void SetDirection(int direction)
     //{
