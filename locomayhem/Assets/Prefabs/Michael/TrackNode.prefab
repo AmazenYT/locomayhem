@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da98ac2966a507e40b3f966f225169cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackNode
-  connections: []
+  connections:
+  - {fileID: 0}
+  - {fileID: 0}
+  occupyingTrain: {fileID: 0}

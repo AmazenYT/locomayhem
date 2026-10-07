@@ -589,8 +589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassengerManager
   stations:
-  - {fileID: 2050375464}
-  - {fileID: 901432353}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &371951642 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
@@ -1318,17 +1318,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5554118617863868926, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
   m_PrefabInstance: {fileID: 891961701}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &901432353 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2086450799366388505, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
-  m_PrefabInstance: {fileID: 1318821819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf6bcb6885a09149a598cf9ff0bdce9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Station
 --- !u!1 &933165207
 GameObject:
   m_ObjectHideFlags: 0
@@ -22808,7 +22797,7 @@ PrefabInstance:
     - target: {fileID: 664929873481173360, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: station
       value: 
-      objectReference: {fileID: 2050375464}
+      objectReference: {fileID: 1318821820}
     - target: {fileID: 2086450799366388505, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: startingTrain
       value: 
@@ -22816,11 +22805,11 @@ PrefabInstance:
     - target: {fileID: 3139583147305133251, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: station
       value: 
-      objectReference: {fileID: 2050375464}
+      objectReference: {fileID: 0}
     - target: {fileID: 6245774354891694494, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: station
       value: 
-      objectReference: {fileID: 2050375464}
+      objectReference: {fileID: 1078215308}
     - target: {fileID: 6527822952843761088, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: connections.Array.size
       value: 2
@@ -22897,6 +22886,28 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
+--- !u!114 &1078215307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4163932428727754893, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
+  m_PrefabInstance: {fileID: 1078215306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da98ac2966a507e40b3f966f225169cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrackNode
+--- !u!114 &1078215308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8913770343336765749, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
+  m_PrefabInstance: {fileID: 1078215306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf6bcb6885a09149a598cf9ff0bdce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Station
 --- !u!114 &1088810845 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2906186016132645428, guid: cb3cbb9d714379749bee142016634ef8, type: 3}
@@ -22938,7 +22949,7 @@ PrefabInstance:
     - target: {fileID: 664929873481173360, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: station
       value: 
-      objectReference: {fileID: 901432353}
+      objectReference: {fileID: 0}
     - target: {fileID: 2086450799366388505, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: startingTrain
       value: 
@@ -22946,11 +22957,11 @@ PrefabInstance:
     - target: {fileID: 3139583147305133251, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: station
       value: 
-      objectReference: {fileID: 901432353}
+      objectReference: {fileID: 0}
     - target: {fileID: 6245774354891694494, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: station
       value: 
-      objectReference: {fileID: 901432353}
+      objectReference: {fileID: 0}
     - target: {fileID: 6527822952843761088, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: connections.Array.size
       value: 2
@@ -23011,6 +23022,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
+--- !u!114 &1318821820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8913770343336765749, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
+  m_PrefabInstance: {fileID: 1318821819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf6bcb6885a09149a598cf9ff0bdce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Station
 --- !u!114 &1373203001 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
@@ -25092,28 +25114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da98ac2966a507e40b3f966f225169cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackNode
---- !u!114 &2050375463 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3833818461925014810, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
-  m_PrefabInstance: {fileID: 1078215306}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da98ac2966a507e40b3f966f225169cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrackNode
---- !u!114 &2050375464 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2086450799366388505, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
-  m_PrefabInstance: {fileID: 1078215306}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf6bcb6885a09149a598cf9ff0bdce9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Station
 --- !u!114 &2085031181 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
@@ -25291,7 +25291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrainManager
   trainPrefab: {fileID: 1884529926525265174, guid: 463677ef0ed713b488b667effb372e3b, type: 3}
   startNodes:
-  - {fileID: 2050375463}
+  - {fileID: 1078215307}
 --- !u!1001 &2124110987
 PrefabInstance:
   m_ObjectHideFlags: 0
