@@ -9,9 +9,24 @@ public class Junction : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite[] sprites;
 
+    [SerializeField] private GameObject leftArrow;
+    [SerializeField] private GameObject rightArrow;
+
+
     private void Awake()
     {
         junctionNode = GetComponent<TrackNode>();
+    }
+
+    public void Start()
+    {
+        UpdateArrows();
+    }
+
+    private void UpdateArrows()
+    {
+        leftArrow.SetActive(selectedRoute == 0);
+        rightArrow.SetActive(selectedRoute == 1);
     }
 
     public void SwitchRoute()
@@ -22,6 +37,7 @@ public class Junction : MonoBehaviour
             selectedRoute = 0;
 
         spriteRenderer.sprite = sprites[selectedRoute];
+        UpdateArrows();
         Debug.Log("Route: " + selectedRoute);
     }
 
