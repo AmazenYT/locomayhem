@@ -86298,23 +86298,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5516347
+      value: 0.13470727
       objectReference: {fileID: 0}
     - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5516347
+      value: 0.13470727
       objectReference: {fileID: 0}
     - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5516347
+      value: 0.13470727
       objectReference: {fileID: 0}
     - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.94
+      value: -1.97
       objectReference: {fileID: 0}
     - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.32
+      value: -3.98
       objectReference: {fileID: 0}
     - target: {fileID: 1859624545388399916, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -86355,7 +86355,7 @@ PrefabInstance:
     - target: {fileID: 4155302711996103813, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
       propertyPath: dynamitePrefab
       value: 
-      objectReference: {fileID: 7921791193199196197, guid: 530cb02d36a900f4ab3d11c8beecd948, type: 3}
+      objectReference: {fileID: 2082849610927723962, guid: 15baadec54b06ca4dbb1174b4ab27b8e, type: 3}
     - target: {fileID: 4155302711996103813, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
       propertyPath: railLayer.m_Bits
       value: 8
@@ -86364,6 +86364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cowboy
       objectReference: {fileID: 0}
+    - target: {fileID: 6872842775936919670, guid: 3618d77ee6a9f6d4495d152edb96fd6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7026936455359849878, guid: 869066105f47cb34597c0cb755ff7bba, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
