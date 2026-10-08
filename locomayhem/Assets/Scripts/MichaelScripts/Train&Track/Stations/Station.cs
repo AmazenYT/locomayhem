@@ -5,8 +5,10 @@ using TMPro;
 
 public class Station : MonoBehaviour
 {
+    public Color stationColor;
     private Train currentTrain;
 
+    [SerializeField] private SpriteRenderer stationImage;
     [SerializeField] private SpriteRenderer leftLever;
     [SerializeField] private SpriteRenderer rightLever;
 
@@ -21,15 +23,36 @@ public class Station : MonoBehaviour
     public List<Passenger> waitingPassengers = new List<Passenger>();
     public TMP_Text passengerText;
 
+    private void Start()
+    {
+        Debug.Log(stationColor);
+        stationImage.color = stationColor;
+    }
+
     public void AddPassenger(Passenger passenger)
     {
         waitingPassengers.Add(passenger);
         UpdatePassengerText();
     }
-    private void UpdatePassengerText()
+
+    public void UpdatePassengerText()
     {
-        passengerText.text = waitingPassengers.Count.ToString();
-    }
+        passengerText.text = "";
+        
+        foreach (Passenger passenger in waitingPassengers)
+        {
+            string hex =
+            ColorUtility.ToHtmlStringRGB(
+                passenger.destination.stationColor);
+                
+                passengerText.text += $"<color=#{hex}>■</color> ";
+            }
+        }
+    //private void UpdatePassengerText()
+    //{
+        //passengerText.text = waitingPassengers.Count.ToString();
+        //passengerText.color = stationColor;
+    //}
 
     public bool HasTrain()
     {

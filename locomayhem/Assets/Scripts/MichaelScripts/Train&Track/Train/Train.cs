@@ -30,10 +30,25 @@ public class Train : MonoBehaviour
 
         UpdatePassengerText();
     }
+    //public void UpdatePassengerText()
+    //{
+        //passengerText.text = passengers.Count.ToString();
+    //}
+
     public void UpdatePassengerText()
     {
-        passengerText.text = passengers.Count.ToString();
+        passengerText.text = "";
+        
+        foreach (Passenger passenger in passengers)
+        {
+            string hex = ColorUtility.ToHtmlStringRGB(
+                passenger.destination.stationColor);
+                
+                passengerText.text +=
+                $"<color=#{hex}>■</color>";
+        }
     }
+    
     public void SetStartingNode(TrackNode startNode)
     {
         currentNode = startNode;
@@ -230,8 +245,8 @@ private void Update()
         StopTrain();
         otherTrain.StopTrain();
 
-        Destroy(otherTrain.gameObject, 5f);
-        Destroy(gameObject, 5f);
+        Destroy(otherTrain.gameObject, 2.5f);
+        Destroy(gameObject, 2.5f);
 
 
     }
