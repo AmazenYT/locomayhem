@@ -2100,7 +2100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
       propertyPath: connections.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
       propertyPath: 'connections.Array.data[0]'
@@ -2109,7 +2109,7 @@ PrefabInstance:
     - target: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
       propertyPath: 'connections.Array.data[1]'
       value: 
-      objectReference: {fileID: 1586517445}
+      objectReference: {fileID: 1748224832}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3155,6 +3155,10 @@ PrefabInstance:
       propertyPath: 'connections.Array.data[0]'
       value: 
       objectReference: {fileID: 1748224832}
+    - target: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
+      propertyPath: 'connections.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2045960043}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36248,6 +36252,10 @@ PrefabInstance:
       propertyPath: 'connections.Array.data[0]'
       value: 
       objectReference: {fileID: 1944554638}
+    - target: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
+      propertyPath: 'connections.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1586517447}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -77415,6 +77423,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.84
       objectReference: {fileID: 0}
+    - target: {fileID: 7059306343443379225, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8166265835339242016, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.31
@@ -80805,6 +80817,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8335804684725250629, guid: cb3cbb9d714379749bee142016634ef8, type: 3}
   m_PrefabInstance: {fileID: 1586517444}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1586517447 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2906186016132645428, guid: cb3cbb9d714379749bee142016634ef8, type: 3}
+  m_PrefabInstance: {fileID: 1586517444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da98ac2966a507e40b3f966f225169cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrackNode
 --- !u!1001 &1593765682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82860,6 +82883,10 @@ PrefabInstance:
       propertyPath: 'connections.Array.data[0]'
       value: 
       objectReference: {fileID: 1731825922}
+    - target: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
+      propertyPath: 'connections.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1944554638}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83799,6 +83826,10 @@ PrefabInstance:
       propertyPath: 'connections.Array.data[0]'
       value: 
       objectReference: {fileID: 133576865}
+    - target: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
+      propertyPath: 'connections.Array.data[1]'
+      value: 
+      objectReference: {fileID: 216018365}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86135,6 +86166,10 @@ PrefabInstance:
       propertyPath: 'connections.Array.data[0]'
       value: 
       objectReference: {fileID: 1706458185}
+    - target: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
+      propertyPath: 'connections.Array.data[1]'
+      value: 
+      objectReference: {fileID: 716831013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -87247,6 +87282,10 @@ PrefabInstance:
       propertyPath: 'connections.Array.data[0]'
       value: 
       objectReference: {fileID: 216018365}
+    - target: {fileID: 7526242011871595838, guid: ed09b195a863cb74985cc2371d173c3d, type: 3}
+      propertyPath: 'connections.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2087233441}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -88006,6 +88045,17 @@ Transform:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3675484545372790852, guid: cb3cbb9d714379749bee142016634ef8, type: 3}
   m_PrefabInstance: {fileID: 555080924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da98ac2966a507e40b3f966f225169cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrackNode
+--- !u!114 &2087233441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6527822952843761088, guid: 6ae11c66da1dbd744a738a1f34554377, type: 3}
+  m_PrefabInstance: {fileID: 1238118661}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
