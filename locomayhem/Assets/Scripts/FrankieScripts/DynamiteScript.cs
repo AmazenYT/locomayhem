@@ -26,32 +26,80 @@ public class Dynamite : MonoBehaviour
     {
         Debug.Log("BOOM!");
 
-        if (railTilemap != null)
-        {
-            // Make absolutely sure there is a tile here
-            if (railTilemap.HasTile(railCell))
-            {
-                // Remove the rail tile
-                railTilemap.SetTile(railCell, null);
+        // Destroy the rail tile
+        DestroyRailTile();
 
-                Debug.Log(
-                    "Destroyed rail tile: " + railCell
-                );
-            }
-            else
-            {
-                Debug.LogWarning(
-                    "No rail tile exists at: " + railCell
-                );
-            }
-        }
-        else
+        // Destroy the TrackNode on that rail
+        DestroyTrackNode();
+
+        // Destroy the dynamite itself
+        Destroy(gameObject);
+    }
+
+    private void DestroyRailTile()
+    {
+        if (railTilemap == null)
         {
             Debug.LogError(
                 "Dynamite has no Rail Tilemap reference!"
             );
+
+            return;
         }
 
-        Destroy(gameObject);
+        if (railTilemap.HasTile(railCell))
+        {
+            railTilemap.SetTile(railCell, null);
+
+            Debug.Log(
+                "Destroyed rail tile: " + railCell
+            );
+        }
+        else
+        {
+            Debug.LogWarning(
+                "No rail tile exists at: " + railCell
+            );
+        }
+    }
+
+    private void DestroyTrackNode()
+    {
+        // Get the world position of the rail cell
+        Vector3 railWorldPosition =
+            railTilemap.GetCellCenterWorld(railCell);
+
+        Transform[] allTransforms =
+        FindObjectsByType<Transform>(
+        FindObjectsInactive.Include
+    );
+
+        foreach (Transform currentTransform in allTransforms)
+        {
+            // Ignore ourselves
+            if (currentTransform == transform)
+                continue;
+
+            // Only look for TrackNode objects
+            if (!currentTransform.name.StartsWith("TrackNode"))
+                continue;
+
+            // Check how far the node is from the destroyed rail tile
+            float distance = Vector2.Distance(
+                currentTransform.position,
+                railWorldPosition
+            );
+
+            // Node is close enough to this rail tile
+            if (distance <= 0.5f)
+            {
+                Debug.Log(
+                    "Destroyed TrackNode: " +
+                    currentTransform.name
+                );
+
+                Destroy(currentTransform.gameObject);
+            }
+        }
     }
 }
